@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="imgbox">
+    
+    </div>
+    <script>
+        const url = "https://picsum.photos/v2/list"
+        const imgbox = document.querySelector('.imgbox');
+        fetch(url)
+        .then((response)=>(response.json()))
+        .then((data)=>{
+            data.forEach(element => {
+                const img = document.createElement('img');
+                imgbox.appendChild(img);
+                img.src = element.download_url;
+            });
+        });
+    </script>
+</body>
+</html>
